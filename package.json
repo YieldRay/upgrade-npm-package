@@ -1,0 +1,27 @@
+{
+    "name": "upgrade-npm-package",
+    "version": "0.1.0",
+    "type": "module",
+    "main": "dist/main.js",
+    "types": "dist/main.d.ts",
+    "bin": {
+        "upgrade-npm-package": "./cli.js"
+    },
+    "scripts": {
+        "build": "npx tsc"
+    },
+    "author": "YieldRay",
+    "license": "ISC",
+    "peerDependencies": {
+        "node-fetch": "^3.2.9"
+    },
+    "dependencies": {
+        "semver": "^7.3.7"
+    },
+    "devDependencies": {
+        "@npm/types": "^1.0.2",
+        "@types/node": "^16.11.45",
+        "@types/semver": "^7.3.10",
+        "tslib": "^2.4.0"
+    }
+}
