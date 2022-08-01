@@ -14,7 +14,7 @@ for (const packageName of allPackageNames) {
 }
 
 const printPack = (deps) => {
-    Object.entries(deps).forEach(async ([packageName, versionRange]) => {
+    Object.entries(deps).forEach(([packageName, versionRange]) => {
         const packu = packuMap.get(packageName);
         console.log(
             "%s %s %s %s",
@@ -32,15 +32,29 @@ printPack(devDependencies);
 printPack(peerDependencies);
 
 console.log("\n");
-console.log("Use this command to update all packages:");
-let command;
-// npm i xxx@xxx
-command = "npm i";
-for (let packageName of Object.keys(dependencies))
-    command += ` ${packageName}@${toUpdateVersion(packuMap.get(packageName), allPackages[packageName])}`;
-console.log(command);
-// npm i -D xxx@xxx
-command = "npm i -D";
-for (let packageName of Object.keys(devDependencies))
-    command += ` ${packageName}@${toUpdateVersion(packuMap.get(packageName), allPackages[packageName])}`;
-console.log(command);
+console.log("Use commands below to upgrade all packages:");
+
+{
+    //! for dependencies
+    // npm i xxx@xxx
+    let command = "npm i";
+    for (let packageName of Object.keys(dependencies))
+        command += ` ${packageName}@${toUpdateVersion(packuMap.get(packageName), allPackages[packageName])}`;
+    console.log(command);
+}
+{
+    //! for peerDependencies
+    // npm i xxx@xxx
+    let command = "npm i";
+    for (let packageName of Object.keys(peerDependencies))
+        command += ` ${packageName}@${toUpdateVersion(packuMap.get(packageName), allPackages[packageName])}`;
+    console.log(command);
+}
+{
+    //! for devDependencies
+    // npm i -D xxx@xxx
+    let command = "npm i -D";
+    for (let packageName of Object.keys(devDependencies))
+        command += ` ${packageName}@${toUpdateVersion(packuMap.get(packageName), allPackages[packageName])}`;
+    console.log(command);
+}

@@ -13,14 +13,14 @@
     "author": "YieldRay",
     "license": "ISC",
     "peerDependencies": {
-        "node-fetch": "^3.2.9"
+        "node-fetch": "^3.2.10"
     },
     "dependencies": {
         "semver": "^7.3.7"
     },
     "devDependencies": {
         "@npm/types": "^1.0.2",
-        "@types/node": "^16.11.45",
+        "@types/node": "^16.11.47",
         "@types/semver": "^7.3.10",
         "tslib": "^2.4.0"
     }
